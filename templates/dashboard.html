@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <div class="title">📊 System Dashboard</div>
+
+    <p><strong>Total Runs:</strong> {{ total_runs }}</p>
+    <p><strong>Total Alerts:</strong> {{ total_alerts }}</p>
+    <p><strong>Latest Detection:</strong> {{ latest }}</p>
+</div>
+
+<div class="card">
+    <div class="title">🔥 Top Alert Runs</div>
+
+    {% for run in top_runs %}
+        <p>{{ run[1] }} → {{ run[4] }} alerts</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

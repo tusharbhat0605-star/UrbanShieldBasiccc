@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <div class="title">📹 RTSP CCTV Detection</div>
+
+    <form method="POST">
+        <input type="text" name="rtsp_url" placeholder="Enter RTSP URL or type 'demo'" required>
+        <button class="btn">Connect</button>
+    </form>
+
+    {% if rtsp_url %}
+        <div id="loader" style="text-align:center; padding:40px;">
+            <div class="spinner"></div>
+            <p>Connecting to Stream...</p>
+        </div>
+
+        <img id="rtspFeed" 
+             src="{{ url_for('rtsp_feed') }}?url={{ rtsp_url }}"
+             onload="document.getElementById('loader').style.display='none';">
+    {% endif %}
+</div>
+
+<style>
+.spinner {
+    border: 6px solid rgba(255,255,255,0.2);
+    border-top: 6px solid #00f5c3;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin:auto;
+}
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+{% endblock %}

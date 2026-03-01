@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>UrbanShield AI - Processing</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: #e8eefc;
+      min-height: 100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding: 24px;
+    }
+
+    .card{
+      width: 100%;
+      max-width: 650px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 26px;
+      text-align:center;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    h1{ margin: 0; font-size: 24px; }
+
+    p{
+      margin-top: 10px;
+      color: rgba(232,238,252,0.75);
+      line-height: 1.5;
+    }
+
+    .spinner{
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.15);
+      border-top: 6px solid rgba(0,255,170,0.85);
+      margin: 18px auto 0 auto;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+      0%{ transform: rotate(0deg); }
+      100%{ transform: rotate(360deg); }
+    }
+
+    .small{
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(232,238,252,0.55);
+    }
+  </style>
+
+  <!-- Auto refresh every 2 seconds -->
+  <meta http-equiv="refresh" content="2">
+</head>
+
+<body>
+  <div class="card">
+    <h1>⚙️ Processing Video...</h1>
+    <p>
+      YOLO is analyzing frames and generating alerts.<br>
+      Please wait — this may take some time.
+    </p>
+
+    <div class="spinner"></div>
+
+    <div class="small">
+      Job ID: {{ job_id }} <br>
+      (This page refreshes automatically)
+    </div>
+  </div>
+</body>
+</html>

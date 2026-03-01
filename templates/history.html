@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <div class="title">📜 Detection History</div>
+
+    {% for det in detections %}
+        <div style="margin-bottom:15px; padding:10px; background:#1e293b; border-radius:8px;">
+            <p><strong>{{ det[2] }}</strong></p>
+            <p>Alerts: {{ det[4] }}</p>
+            <a href="/history/{{ det[0] }}" style="color:#00f5c3;">View Details</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

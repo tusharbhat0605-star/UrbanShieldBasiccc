@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UrbanShield AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: #0b1220;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #00f5c3;
+        }
+
+        .nav a {
+            display: block;
+            padding: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #94a3b8;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .nav a:hover {
+            background: rgba(0,245,195,0.1);
+            color: #00f5c3;
+        }
+
+        /* Main content */
+        .main {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(12px);
+        }
+
+        .title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00f5c3;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(90deg,#00f5c3,#3b82f6);
+            color: #0f172a;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        input[type="file"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: #1e293b;
+            color: white;
+        }
+
+        img, video {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        @keyframes glow {
+    from { box-shadow: 0 0 5px rgba(255,0,0,0.5); }
+    to { box-shadow: 0 0 25px rgba(255,0,0,1); }
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <div class="logo">🛡 UrbanShield AI</div>
+
+    <div style="margin-bottom:20px; font-size:14px;">
+        System Status:
+        <span style="color:#00f5c3;">ACTIVE</span>
+    </div>
+
+    <div class="nav">
+        <a href="/">📤 Upload Detection</a>
+        <a href="/rtsp">📹 RTSP CCTV</a>
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/history">📜 History</a>
+        <a href="/logout">🚪 Logout</a>
+    </div>
+
+    <!-- Alert Badge -->
+    <div style="margin-top:30px; text-align:center;">
+        <div style="
+            display:inline-block;
+            padding:12px 18px;
+            border-radius:12px;
+            background:rgba(255,0,0,0.15);
+            border:1px solid rgba(255,0,0,0.4);
+            color:#ff4d4d;
+            font-weight:bold;
+            box-shadow:0 0 15px rgba(255,0,0,0.7);
+            animation: glow 1.5s infinite alternate;
+        ">
+            🚨 Alerts: {{ total_alerts if total_alerts else 0 }}
+        </div>
+    </div>
+</div>
+
+    <div class="main">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

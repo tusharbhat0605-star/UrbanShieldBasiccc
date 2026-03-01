@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <div class="title">✅ Detection Completed</div>
+
+    <p><strong>Video:</strong> {{ input_filename }}</p>
+    <p><strong>Total Alerts:</strong> {{ alert_count }}</p>
+
+    <video controls>
+        <source src="{{ url_for('static', filename=output_video) }}" type="video/mp4">
+    </video>
+</div>
+
+<div class="card">
+    <div class="title">🚨 Alert Log</div>
+
+    {% if alerts %}
+        <ul>
+        {% for a in alerts %}
+            <li>{{ a }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No alerts detected.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

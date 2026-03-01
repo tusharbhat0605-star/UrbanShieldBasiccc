@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+static/uploads/
+static/output/
+static/evidence/
+urbanshield.db
+yolov8n.pt

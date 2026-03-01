@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <div class="title">📤 Upload Detection Mode</div>
+    <p>Upload a traffic video to analyze accident-like events using YOLO AI.</p>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/mp4" required>
+        <button class="btn">Run Detection</button>
+    </form>
+</div>
+
+{% endblock %}
