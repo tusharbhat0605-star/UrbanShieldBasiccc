@@ -1,11 +1,12 @@
 import smtplib
 import os
 from email.message import EmailMessage
+from dotenv import load_dotenv
+load_dotenv()
 
-SENDER_EMAIL = "tusharbhat0605@gmail.com"
-APP_PASSWORD = "qerxkvoevuzgmrby"  # remove spaces
-RECEIVER_EMAIL = "23c56@sdmit.in"
-
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+APP_PASSWORD = os.getenv("APP_PASSWORD")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
 
 def send_alert_email(snapshot_path, timestamp, source="RTSP"):
 
